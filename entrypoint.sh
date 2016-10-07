@@ -68,5 +68,8 @@ chown -R www-data /var/www/html
 # Apache gets grumpy about PID files pre-existing
 rm -f /var/run/apache2/apache2.pid
 
+# Setup Apache runtime vars
+[[ -s /etc/apache2/envvars ]] && . /etc/apache2/envvars
+
 # Hand over to apache as PID 1
 exec apache2 -DFOREGROUND
