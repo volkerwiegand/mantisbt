@@ -25,6 +25,8 @@ RUN mkdir -p /var/lib/mantisbt && cd /var/lib/mantisbt \
 	&& rm ${MANTIS_FILE} \
 	&& chown -R www-data:www-data .
 
+RUN source /etc/apache2/envvars
+
 ADD ./entrypoint.sh /entrypoint.sh
 ENTRYPOINT ["/entrypoint.sh"]
 
